@@ -1,0 +1,17 @@
+.parent{
+    
+    background-image: url('../../images/casual.jpeg');
+    
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 600px;
+    margin: 100px auto;
+}
+.head{
+    color: white;
+    margin: 100px ;
+    position: relative;
+    top: 60px;
+    text-align: center;
+}

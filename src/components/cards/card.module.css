@@ -1,0 +1,32 @@
+.parent{
+    text-align: center;
+}
+.parentproduct{
+display: grid;
+grid-template-columns: repeat(3,1fr)
+}
+.contain{
+    display:grid;
+   
+    margin: 30px 10px;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.productimage{
+    width: 200px;
+    height: 250px;
+}
+.desc{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    text-align: left;
+    margin-top: 50px;
+}
+p{
+    font-size: small;
+}
+.cardBtnParent{
+display:flex;
+gap: 10px;
+}
