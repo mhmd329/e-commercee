@@ -111,14 +111,25 @@ svg{
   
   .cartItems {
     margin-top: 20px;
+    
+  }
+  .cartItem p{
+    text-align: left;
+    padding: 0;
+  }
+  .cartItem button{
+    width: 90px;
+    height: 60px;
+    grid-column: 2;
   }
   .parentcartimg{
     display: flex;
   }
   .cartItem {
     border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-evenly;
+   gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .overlay {
     position: fixed;

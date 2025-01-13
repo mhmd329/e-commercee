@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Styles from "./card.module.css";
 import { Context } from "../cartcontext/context";
 const SportCard = () => {
-  const { products, handleAddToCart, handleRemoveFromCart, clearFromCart } =
+  const { products, handleAddToCart, handleRemoveFromCart } =
     useContext(Context);
   return (
     <div className={Styles.parent}>

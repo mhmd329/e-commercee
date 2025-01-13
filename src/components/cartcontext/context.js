@@ -1,12 +1,26 @@
 import React, { createContext, useEffect, useState } from "react";
 
-export const Context = createContext({});
+export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
+  const BuyCart = () => {
+    if (cartItems.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
+    const totalAmount = cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+
+    alert(`Your total payment is $${totalAmount}`);
+    setCartItems([]);
+  };
 
   const handleAddToCart = (product) => {
     setCartItems((prevItems) => {
@@ -41,11 +55,6 @@ export const ContextProvider = ({ children }) => {
     });
   };
 
-  const clearFromCart = (product) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== product.id)
-    );
-  };
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -82,9 +91,10 @@ export const ContextProvider = ({ children }) => {
         cartItems,
         handleAddToCart,
         handleRemoveFromCart,
-        clearFromCart,
+        
         totalQuantity,
         totalPrice,
+        BuyCart,
       }}
     >
       {children}

@@ -6,7 +6,7 @@ import { Context } from "../cartcontext/context";
 
 export const SideCart = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { totalQuantity, cartItems, handleRemoveFromCart, handleAddToCart } =
+  const { totalQuantity, cartItems, handleRemoveFromCart, BuyCart } =
     useContext(Context);
 
   const openCart = () => setIsOpen(true);
@@ -33,7 +33,7 @@ export const SideCart = () => {
             cartItems.map((item) => (
               <div key={item.id} className={Styles.cartItem}>
                 <div>
-                  <h4>{item.title}</h4>
+                  <p>{item.title}</p>
                   <p>Quantity: {item.quantity}</p>
                   <p>Price: ${item.price * item.quantity}</p>
                 </div>
@@ -46,13 +46,15 @@ export const SideCart = () => {
 
                 
                   <button onClick={() => handleRemoveFromCart(item)}>x</button>
-                </div>
+                 
+                </div>  
               </div>
             ))
           ) : (
             <p>Your cart is empty.</p>
           )}
         </div>
+      <button onClick={()=>BuyCart(cartItems)}>buy all cart</button>
       </div>
     </div>
   );
